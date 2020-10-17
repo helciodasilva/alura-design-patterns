@@ -2,12 +2,14 @@ package br.com.alura.curso.design.patterns.conta;
 
 interface Resposta {
 	void responde(Requisicao req, Conta conta);
-
-	void setProxima(Resposta resposta);
 }
 
 class RespostaEmXml implements Resposta {
 	private Resposta outraResposta;
+
+	public RespostaEmXml(Resposta outraResposta) {
+		this.outraResposta = outraResposta;
+	}
 
 	public void responde(Requisicao req, Conta conta) {
 		if (req.getFormato() == Formato.XML) {
@@ -18,13 +20,14 @@ class RespostaEmXml implements Resposta {
 		}
 	}
 
-	public void setProxima(Resposta resposta) {
-		this.outraResposta = resposta;
-	}
 }
 
 class RespostaEmCsv implements Resposta {
 	private Resposta outraResposta;
+
+	public RespostaEmCsv(Resposta outraResposta) {
+		this.outraResposta = outraResposta;
+	}
 
 	public void responde(Requisicao req, Conta conta) {
 		if (req.getFormato() == Formato.CSV) {
@@ -33,14 +36,14 @@ class RespostaEmCsv implements Resposta {
 			outraResposta.responde(req, conta);
 		}
 	}
-
-	public void setProxima(Resposta resposta) {
-		this.outraResposta = resposta;
-	}
 }
 
 class RespostaEmPorcento implements Resposta {
 	private Resposta outraResposta;
+
+	public RespostaEmPorcento(Resposta outraResposta) {
+		this.outraResposta = outraResposta;
+	}
 
 	public void responde(Requisicao req, Conta conta) {
 		if (req.getFormato() == Formato.PORCENTO) {
@@ -48,9 +51,5 @@ class RespostaEmPorcento implements Resposta {
 		} else {
 			outraResposta.responde(req, conta);
 		}
-	}
-
-	public void setProxima(Resposta resposta) {
-		this.outraResposta = resposta;
 	}
 }

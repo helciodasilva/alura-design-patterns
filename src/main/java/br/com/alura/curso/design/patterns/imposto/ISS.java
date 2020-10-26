@@ -1,9 +1,16 @@
 package br.com.alura.curso.design.patterns.imposto;
 
-public class ISS implements Imposto {
+public class ISS extends Imposto {
+
+	public ISS(Imposto outroImposto) {
+		super(outroImposto);
+	}
+
+	public ISS() {
+	}
 
 	public double calcula(Orcamento orcamento) {
-		return orcamento.getValor() * 0.06;
+		return orcamento.getValor() * 0.06 + calculoDoOutroImposto(orcamento);
 	}
 
 }

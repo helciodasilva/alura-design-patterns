@@ -1,11 +1,15 @@
 package br.com.alura.curso.design.patterns.conta;
 
+import java.util.Calendar;
+
 public class Conta {
 	private String titular;
 	private double saldo;
 	private String name;
 	private String numero;
 	private String agencia;
+	private Calendar dataAbertura;
+	private int valor;
 
 	public Conta(String titular, double saldo) {
 		this.titular = titular;
@@ -38,6 +42,14 @@ public class Conta {
 
 	public String getAgencia() {
 		return agencia;
+	}
+
+	public Calendar getDataAbertura() {
+		return dataAbertura;
+	}
+
+	public int getValor() {
+		return valor;
 	}
 
 }

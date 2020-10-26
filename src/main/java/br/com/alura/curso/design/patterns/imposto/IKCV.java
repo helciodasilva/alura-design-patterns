@@ -4,6 +4,12 @@ import br.com.alura.curso.design.patterns.desconto.Item;
 
 class IKCV extends TemplateDeImpostoCondicional {
 
+    public IKCV() {}
+
+    public IKCV(Imposto outroImposto) {
+        super(outroImposto);
+    }
+	
 	protected boolean deveUsarMaximaTaxacao(Orcamento orcamento) {
 		return orcamento.getValor() > 500 && temItemMaiorQue100ReaisNo(orcamento);
 	}

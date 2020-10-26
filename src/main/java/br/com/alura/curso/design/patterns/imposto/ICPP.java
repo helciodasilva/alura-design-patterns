@@ -1,6 +1,13 @@
 package br.com.alura.curso.design.patterns.imposto;
 
 class ICPP extends TemplateDeImpostoCondicional {
+	
+	public ICPP() {
+	}
+
+	public ICPP(Imposto outroImposto) {
+		super(outroImposto);
+	}
 
 	protected boolean deveUsarMaximaTaxacao(Orcamento orcamento) {
 		return orcamento.getValor() >= 500;
